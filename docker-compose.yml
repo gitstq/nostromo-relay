@@ -1,0 +1,21 @@
+services:
+  nostromo:
+    build: .
+    image: nostromo:1.0.0
+    container_name: nostromo
+    restart: unless-stopped
+    ports:
+      - "7777:7777"
+    volumes:
+      - nostromo-data:/data
+    command:
+      - serve
+      - --addr
+      - :7777
+      - --db
+      - /data/events.jsonl
+      - --name
+      - Nostromo
+
+volumes:
+  nostromo-data:

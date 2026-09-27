@@ -1,0 +1,32 @@
+# Binaries and build output
+/dist/
+/build/
+/bin/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+nostromo
+nostromo-*
+
+# Runtime data and local event logs
+/data/
+/run/
+*.jsonl
+!testdata/*.jsonl
+
+# Test / coverage artifacts
+*.test
+*.out
+coverage.txt
+
+# Environment and local config
+.env
+*.local
+
+# Editor / OS
+.idea/
+.vscode/
+.DS_Store
+*.swp

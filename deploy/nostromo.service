@@ -1,0 +1,25 @@
+[Unit]
+Description=Nostromo Nostr event-log relay
+Documentation=https://github.com/gitstq/nostromo-relay
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=nostromo
+Group=nostromo
+# Adjust the binary path, listen address and data directory as needed.
+ExecStart=/usr/local/bin/nostromo serve \
+  --addr :7777 \
+  --db /var/lib/nostromo/events.jsonl \
+  --name Nostromo
+Restart=on-failure
+RestartSec=3
+WorkingDirectory=/var/lib/nostromo
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=true
+
+[Install]
+WantedBy=multi-user.target
